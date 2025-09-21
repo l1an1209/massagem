@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Serenity Spa Ji-paraná | Cabina Exótica{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}" class="logo">Serenity Spa</a>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('servicos') }}">Serviços</a>
+            <a href="{{ url_for('agendamento') }}">Agendamento</a>
+            <a href="{{ url_for('contato') }}">Contato</a>
+            <a href="{{ url_for('agendamento') }}" class="nav-cta">Reservar</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+         <img src="{{ url_for('static', filename='images.jpeg') }}" alt="Imagem padrão" class="hero-img">
+        <div class="hero-content">
+            <h1>Descubra o Seu Refúgio Secreto</h1>
+            <p>Experiências exclusivas de bem-estar e relaxamento em nossa cabina privativa. Um oasis de tranquilidade no coração da cidade.</p>
+            <a href="{{ url_for('agendamento') }}" class="hero-btn">Agendar Experiência</a>
+        </div>
+        <img src="{{ url_for('static', filename='chupa.jpg') }}" alt="Imagem padrão" class="hero-img">
+    </section>
+
+    <!-- Services Preview -->
+    <section>
+        <div class="section-title">
+            <img src="{{ url_for('static', filename='secrete.webp') }}" alt="Imagem padrão">
+            <h2>Nossos Serviços Exclusivos</h2>
+            <p>Descubra nossas terapias premium projetadas para rejuvenescimento completo</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Massagem Terapêutica</h3>
+                <p>Técnicas especializadas para alívio de tensão e dores musculares, com óleos essenciais personalizados.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Terapia de Aromas</h3>
+                <p>Uma jornada sensorial que combina aromaterapia com técnicas de relaxamento profundo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Tratamento com Pedras</h3>
+                <p>Terapia com pedras quentes e frias para equilibrar energia e promover relaxamento profundo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="section-title">
+            <h2>Nossa Cabina Exótica</h2>
+            <p>Um espaço concebido para desconectar do mundo e reconectar consigo mesmo</p>
+        </div>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p>Escondida dos olhares curiosos, nossa cabina secreta oferece privacidade absoluta e um ambiente cuidadosamente projetado para sua desconexão. Cada detalhe foi pensado para transportá-lo para um estado de serenidade profunda, longe do estresse do cotidiano.</p>
+            <br>
+            <p>Com capacidade para até duas pessoas, nosso espaço exclusivo é ideal para momentos de autocuidado ou experiências compartilhadas com alguém especial.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Serenity Spa</h3>
+                <p>Seu refúgio urbano para relaxamento e rejuvenescimento. Oferecemos experiências personalizadas em um ambiente exclusivo e privativo.</p>
+            </div>
+            <div>
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sexta: 10h - 20h</p>
+                <p>Sábado: 9h - 22h</p>
+                <p>Domingo: 11h - 18h</p>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Centro, Ji-paraná-Rondonia, 1080</p>
+                <p><i class="fas fa-phone"></i> (69) 69993735169</p>
+                <p><i class="fas fa-envelope"></i> contato@serenityspa.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Jipa Secreta  - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
+
