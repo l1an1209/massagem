@@ -1,15 +1,151 @@
 {% extends "base.html" %}
 {% block title %}Agendamento{% endblock %}
 {% block content %}
-<h1>Agende seu horário</h1>
-<form method="POST">
-  Nome: <input type="text" name="nome" required><br>
-  Telefone: <input type="text" name="telefone" required><br>
-  Serviço: 
-  <select name="servico">
-    <option>Cabine Exótica</option>
-    <option>Massagem Tântrica</option>
-  </select><br>
-  <button type="submit">Enviar</button>
-</form>
+<section class="booking-section">
+    <div class="section-title">
+        <h2>Agende Sua Experiência</h2>
+        <p>Reserve seu momento de relaxamento e bem-estar</p>
+    </div>
+    
+    <div class="form-container">
+        <form method="POST" class="booking-form">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">Telefone/WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" required placeholder="(69) 99999-9999">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail (opcional)</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="servico">Serviço Desejado</label>
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Cabine Exótica">Cabine Exótica - R$ 150/hora</option>
+                    <option value="Massagem Tântrica">Massagem Tântrica - R$ 200/hora</option>
+                    <option value="Massagem Relaxante">Massagem Relaxante - R$ 120/hora</option>
+                    <option value="Tratamento Facial">Tratamento Facial - R$ 100/hora</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="data">Data Preferida</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="horario">Horário Preferido</label>
+                <select id="horario" name="horario" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="observacoes">Observações (opcional)</label>
+                <textarea id="observacoes" name="observacoes" rows="4" placeholder="Alguma observação especial ou preferência..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-calendar-check"></i>
+                Confirmar Agendamento
+            </button>
+        </form>
+    </div>
+    
+    <div class="booking-info">
+        <div class="info-card">
+            <i class="fas fa-clock"></i>
+            <h3>Horários de Funcionamento</h3>
+            <p>Segunda a Sexta: 10h - 20h<br>
+            Sábado: 9h - 22h<br>
+            Domingo: 11h - 18h</p>
+        </div>
+        
+        <div class="info-card">
+            <i class="fas fa-phone"></i>
+            <h3>Contato Direto</h3>
+            <p>WhatsApp: (69) 99937-35169<br>
+            Telefone: (69) 99937-35169</p>
+        </div>
+        
+        <div class="info-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Privacidade Garantida</h3>
+            <p>Ambiente totalmente privativo e discreto para sua tranquilidade e conforto.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.booking-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #F8F6F0 0%, #E8D5B7 100%);
+    min-height: 100vh;
+}
+
+.booking-form {
+    margin-bottom: 3rem;
+}
+
+.booking-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.info-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.btn-submit i {
+    margin-right: 0.5rem;
+}
+</style>
 {% endblock %}

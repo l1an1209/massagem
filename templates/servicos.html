@@ -2,78 +2,306 @@
 {% block title %}Serviços{% endblock %}
 
 {% block content %}
-<section class="servicos">
-    <h1 class="titulo">✨ Nossos Serviços ✨</h1>
-    <div class="grid-servicos">
-        {% for s in servicos %}
-        <div class="card-servico">
-            {% if s.imagem %}
-            <img src="{{ url_for('static', filename=s.imagem) }}" alt="{{ s.nome }}">
-            {% else %}
-            <img src="{{ url_for('static', filename='images (2).jpeg') }}" alt="Imagem padrão">
-            {% endif %}
-            <div class="card-conteudo">
-                <h2>{{ s.nome }}</h2>
-                <p>{{ s.descricao }}</p>
+<section class="services-page">
+    <div class="section-title">
+        <h2>Nossos Serviços Exclusivos</h2>
+        <p>Descubra nossa gama completa de tratamentos terapêuticos e relaxantes</p>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='images.jpeg') }}" alt="Cabine Exótica">
+                <div class="service-overlay">
+                    <span class="service-price">R$ 150/hora</span>
+                </div>
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Cabine Exótica</h3>
+                <p>Ambiente reservado e relaxante com decoração temática, iluminação suave e aromas especiais para uma experiência única de relaxamento.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Ambiente privativo</li>
+                    <li><i class="fas fa-check"></i> Aromaterapia inclusa</li>
+                    <li><i class="fas fa-check"></i> Música ambiente</li>
+                    <li><i class="fas fa-check"></i> Capacidade para 2 pessoas</li>
+                </ul>
+                <a href="{{ url_for('agendamento') }}" class="service-btn">Agendar Agora</a>
             </div>
         </div>
-        {% endfor %}
+        
+        <div class="service-card">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='chupa.jpg') }}" alt="Massagem Tântrica">
+                <div class="service-overlay">
+                    <span class="service-price">R$ 200/hora</span>
+                </div>
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Massagem Tântrica</h3>
+                <p>Experiência sensorial e terapêutica que combina técnicas milenares com óleos essenciais para despertar a energia vital e promover relaxamento profundo.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Técnicas especializadas</li>
+                    <li><i class="fas fa-check"></i> Óleos essenciais premium</li>
+                    <li><i class="fas fa-check"></i> Terapeuta certificada</li>
+                    <li><i class="fas fa-check"></i> Ambiente íntimo</li>
+                </ul>
+                <a href="{{ url_for('agendamento') }}" class="service-btn">Agendar Agora</a>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='secrete.webp') }}" alt="Massagem Relaxante">
+                <div class="service-overlay">
+                    <span class="service-price">R$ 120/hora</span>
+                </div>
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-hands"></i>
+                </div>
+                <h3>Massagem Relaxante</h3>
+                <p>Massagem clássica com movimentos suaves e pressão adequada para aliviar tensões musculares e promover bem-estar geral.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Técnicas clássicas</li>
+                    <li><i class="fas fa-check"></i> Alívio de tensões</li>
+                    <li><i class="fas fa-check"></i> Óleos terapêuticos</li>
+                    <li><i class="fas fa-check"></i> Duração flexível</li>
+                </ul>
+                <a href="{{ url_for('agendamento') }}" class="service-btn">Agendar Agora</a>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='images (2).jpeg') }}" alt="Tratamento Facial">
+                <div class="service-overlay">
+                    <span class="service-price">R$ 100/hora</span>
+                </div>
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>Tratamento Facial</h3>
+                <p>Tratamento facial completo com produtos naturais para limpeza, hidratação e rejuvenescimento da pele.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Produtos naturais</li>
+                    <li><i class="fas fa-check"></i> Limpeza profunda</li>
+                    <li><i class="fas fa-check"></i> Hidratação intensiva</li>
+                    <li><i class="fas fa-check"></i> Máscaras especiais</li>
+                </ul>
+                <a href="{{ url_for('agendamento') }}" class="service-btn">Agendar Agora</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="services-cta">
+        <h3>Pronto para sua experiência de relaxamento?</h3>
+        <p>Entre em contato conosco para agendar seu horário ou esclarecer dúvidas sobre nossos serviços.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('agendamento') }}" class="btn-primary">Agendar Agora</a>
+            <a href="{{ url_for('contato') }}" class="btn-secondary">Falar Conosco</a>
+        </div>
     </div>
 </section>
 
 <style>
-.servicos {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Segoe UI', sans-serif;
+.services-page {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #F8F6F0 0%, #E8D5B7 100%);
+    min-height: 100vh;
 }
 
-.titulo {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #2c3e50;
-}
-
-.grid-servicos {
+.services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
 }
 
-.card-servico {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+.service-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
+    position: relative;
 }
 
-.card-servico:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
 }
 
-.card-servico img {
+.service-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.service-image img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    transition: var(--transition);
 }
 
-.card-conteudo {
-    padding: 15px;
+.service-card:hover .service-image img {
+    transform: scale(1.05);
 }
 
-.card-conteudo h2 {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
-    color: #2980b9;
+.service-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.card-conteudo p {
-    color: #555;
-    font-size: 1rem;
+.service-content {
+    padding: 2rem;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.service-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.service-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.service-features i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.service-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.service-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.services-cta {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.services-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.services-cta p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    min-width: 150px;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 </style>
 {% endblock %}

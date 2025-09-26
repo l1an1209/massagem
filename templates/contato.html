@@ -1,7 +1,237 @@
 {% extends "base.html" %}
 {% block title %}Contato{% endblock %}
 {% block content %}
-<h1>Entre em contato</h1>
-<p>📞 Telefone/WhatsApp: (99) 99999-9999</p>
-<p>📍 Endereço: Rua Exemplo, 123 - Centro</p>
+<section class="contact-section">
+    <div class="section-title">
+        <h2>Entre em Contato</h2>
+        <p>Estamos aqui para esclarecer suas dúvidas e agendar sua experiência</p>
+    </div>
+    
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Endereço</h3>
+                <p>Centro, Ji-paraná - RO<br>
+                Rua Principal, 1080<br>
+                Próximo ao centro comercial</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Telefone</h3>
+                <p><a href="tel:+55699993735169">(69) 99937-35169</a><br>
+                <a href="tel:+55699993735169">(69) 99937-35169</a></p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/55699993735169" target="_blank">(69) 99937-35169</a><br>
+                Resposta rápida garantida</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>E-mail</h3>
+                <p><a href="mailto:contato@serenityspa.com">contato@serenityspa.com</a><br>
+                Respondemos em até 24h</p>
+            </div>
+        </div>
+        
+        <div class="contact-form-container">
+            <h3>Envie uma Mensagem</h3>
+            <form class="contact-form" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="agendamento">Agendamento</option>
+                        <option value="duvidas">Dúvidas sobre serviços</option>
+                        <option value="precos">Preços e pacotes</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="map-section">
+        <h3>Nossa Localização</h3>
+        <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Centro, Ji-paraná - RO<br>
+            Rua Principal, 1080</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #F8F6F0 0%, #E8D5B7 100%);
+    min-height: 100vh;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.contact-icon i {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.contact-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.contact-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-card a:hover {
+    color: var(--secondary-color);
+}
+
+.contact-form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-form-container h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.map-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.map-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.map-placeholder {
+    background: var(--white);
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    border: 2px dashed rgba(212, 175, 55, 0.3);
+}
+
+.map-placeholder i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.map-placeholder p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-container {
+        padding: 2rem;
+    }
+}
+</style>
 {% endblock %}
